@@ -1,0 +1,481 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 10px;
+}
+body {
+  width: 100%;
+  background-color: #000;
+  font-family: "Inter", "Inter Fallback", sans-serif;
+}
+/* header */
+header {
+  width: 100%;
+  height: 8rem;
+  position: fixed;
+  z-index: 2;
+  background-color: #000;
+}
+header .navbar {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+header .navbar .logo img {
+  width: 10rem;
+  height: 8rem;
+  object-fit: contain;
+  margin-left: 1.5rem;
+}
+.search_bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 3.2rem;
+  position: relative;
+}
+.fa-magnifying-glass {
+  color: #b6b5b6;
+  font-size: 1.6rem;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+}
+#search-bar {
+  border-radius: 30px;
+  background-color: #0b0b0b;
+  border: 1px solid #242424;
+  padding-left: 4rem;
+  width: 100%;
+  height: 100%;
+}
+
+.fa-bars {
+  font-size: 2.4rem;
+  color: #b6b5b6;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1.5rem;
+}
+/* body */
+.title {
+  display: inline-block;
+  color: #fff;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 5px;
+}
+.title::after {
+  content: "";
+  width: 100%;
+  border: solid 1px orange;
+  position: absolute;
+  bottom: 0px;
+}
+
+/* phim đề cử */
+.nomination .title {
+  font-size: 18px;
+  margin-top: 9rem;
+}
+
+.list_film {
+  display: flex;
+  gap: 1rem;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.thumb {
+  margin-top: 10px;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.thumb img {
+  width: 180px;
+  height: 270px;
+  border-radius: 10px;
+  transition: transform 0.5s ease;
+}
+.main-content .thumb img:hover {
+  transform: scale(1.1);
+}
+.thumb:hover {
+  cursor: pointer;
+}
+.translate {
+  position: absolute;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 3px 5px;
+  top: 5px;
+  left: 5px;
+  border-radius: 3px;
+}
+.nomination .translate {
+  font-weight: 600;
+}
+
+.HD {
+  position: absolute;
+  color: black;
+  background-color: orange;
+  padding: 3px 5px;
+  top: 5px;
+  right: 5px;
+  font-weight: 600;
+  border-radius: 3px;
+}
+
+.episode {
+  position: absolute;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 3px 5px;
+  bottom: 5px;
+  left: 5px;
+  border-radius: 3px;
+}
+a {
+  display: block;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nomination a {
+  max-width: 180px;
+}
+.name_vie a {
+  color: white;
+}
+.name_eng a {
+  color: #99a1af;
+}
+.play {
+  visibility: hidden;
+  z-index: 1;
+}
+.play.active {
+  visibility: visible;
+}
+.play.active:hover {
+  cursor: pointer;
+}
+.fa-play {
+  color: white;
+  font-size: 16px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.circle {
+  width: 36px;
+  height: 36px;
+  background-color: #f0b100;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.main-content-and-sidebar {
+  display: flex;
+}
+/* main-content */
+.main-content {
+  max-width: 76%;
+  margin-bottom: 20px;
+}
+
+.TV-series,
+.standalone-film,
+.movie,
+.cartoon {
+  margin-top: 4rem;
+}
+.TV-series .title a,
+.standalone-film .title a,
+.movie .title a,
+.cartoon .title a {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.TV-series img,
+.standalone-film img,
+.movie img,
+.cartoon img {
+  width: 176px;
+  height: 264px;
+}
+
+.TV-series .list_film,
+.standalone-film .list_film,
+.movie .list_film,
+.cartoon .list_film {
+  flex-wrap: wrap;
+}
+
+.TV-series .name_vie,
+.TV-series .name_eng,
+.standalone-film .name_vie,
+.standalone-film .name_eng,
+.movie .name_vie,
+.movie .name_eng,
+.cartoon .name_vie,
+.cartoon .name_eng {
+  max-width: 176px;
+}
+
+/* sidebar */
+.sidebar {
+  max-width: 23%;
+  margin: 20px 15px;
+  height: calc(20 * 75px);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-top {
+  background-color: #080c14;
+  padding: 16px;
+  border-radius: 5px;
+}
+
+.sidebar-top .title {
+  color: #ff8904;
+  font-size: 18px;
+  border-bottom: 1px dashed #3b465c;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  display: block;
+}
+
+.sidebar .title::after {
+  border: none;
+}
+
+.hot-week {
+  max-width: 100%;
+  border-radius: 5px;
+  display: flex;
+  margin-top: 10px;
+  padding: 10px;
+}
+.hot-week.one,
+.hot-week.two,
+.hot-week.three {
+  background-color: #1e2939;
+}
+.hot-week:hover {
+  cursor: pointer;
+}
+
+.number {
+  position: relative;
+}
+.number .circle {
+  background-color: #364153;
+  width: 24px;
+  height: 24px;
+  top: 50%;
+  left: 10px;
+}
+
+.hot-week.one .circle,
+.hot-week.two .circle {
+  background-color: #ff7e08;
+}
+.hot-week.three .circle {
+  background-color: #f0b100;
+}
+.hot-week:hover {
+  background-color: #1e2939;
+}
+.top {
+  color: #fff;
+  font-size: 12px;
+  top: 50%;
+  left: 10px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  z-index: 1;
+}
+
+.text {
+  margin-left: 30px;
+  max-width: calc(100% - 20px);
+}
+.text .film {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text .viewer {
+  color: #99a1af;
+  font-size: 12px;
+  padding: 3px;
+}
+
+.sidebar-bot {
+  margin-top: 40px;
+  background-color: #080c14;
+  padding: 16px;
+  border-radius: 5px;
+}
+
+.sidebar-bot .title {
+  font-size: 18px;
+  padding-left: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebar-bot .title::before {
+  content: "";
+  width: 4px;
+  height: 20px;
+  background-color: #ff7e08;
+  border-radius: 10px;
+}
+
+.rate .thumb {
+  width: 30%;
+  height: 30%;
+  border-radius: 10px;
+}
+
+.rate {
+  display: flex;
+  margin: 5px;
+}
+.rate:hover {
+  cursor: pointer;
+}
+
+.info {
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+.title_vie {
+  color: white;
+  font-size: 14px;
+  padding: 5px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.title_eng {
+  color: #99a1af;
+  font-size: 12px;
+  padding: 5px;
+}
+
+.fa-star {
+  color: #f0b100;
+}
+
+.score {
+  display: flex;
+  padding: 5px;
+  font-size: 12px;
+}
+.score .number {
+  color: white;
+  padding-left: 3px;
+}
+
+.score .episode-text {
+  color: #99a1af;
+  padding-left: 3px;
+}
+
+.fa-eye {
+  color: #99a1af;
+}
+.info .viewer {
+  color: white;
+  padding: 5px;
+  font-size: 12px;
+}
+
+.rate.active .title_vie {
+  color: #ff7e08;
+}
+
+.rate.active img {
+  filter: brightness(50%);
+}
+
+hr {
+  background-color: #191a1a;
+  height: 0.5px;
+  border: none;
+}
+/* footer */
+footer {
+  display: flex;
+  font-size: 14px;
+  color: #99a1af;
+  margin-top: 10px;
+}
+
+footer a {
+  padding: 0;
+  display: inline;
+  color: #99a1af;
+  font-weight: 600;
+}
+.intro {
+  max-width: 60%;
+  line-height: 20px;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+.intro p:first-child {
+  margin-bottom: 10px;
+}
+.help p:first-child,
+.motphim p:first-child {
+  color: white;
+  font-weight: 600;
+  cursor: text;
+}
+
+.help p,
+.motphim p {
+  margin: 20px;
+  cursor: pointer;
+}
+
+.motphim {
+  margin-left: 30px;
+}
